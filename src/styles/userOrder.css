@@ -1,0 +1,52 @@
+.main-order{
+    width: 100%;
+    display: flex;
+    background-color: lightcyan;
+}
+.right-userorder{
+    width: 70%;
+    background-color:#EEEEF0;
+}
+.table{
+    margin-left: 4vw;
+    margin-top: 1vw;
+}
+
+.left-order{
+    width: 30%;
+    height: 100%;
+
+}
+
+.card-userorder{
+    width: 50vw;
+    height: 42vh;
+    margin-left: 4vw;
+    border-radius: 7px;
+    display: flex;
+    background-color: #266E8D;
+}
+.card-userorder img{
+    width: 26vw;
+    height:38vh;
+    margin: 12px;
+    object-fit: cover;
+}
+
+.text-userorder{
+    margin-left: 11vw;
+    margin-top: 1vw;
+}
+.text-userorder h4{
+    color: white;
+    font-weight: 600;
+    font-size: 26px;
+}
+.text-userorder h5{
+    color: white;
+    font-size: 19px;
+}
+.text-userorder p{
+    color: white;
+    font-size: 20px;
+}

@@ -1,0 +1,45 @@
+.main-userorder{
+    width: 28vw;
+    height: 90vh;
+    overflow: hidden;
+    background-color: #EEEEF0;
+}
+.admin-userorder{
+    width: 26vw;
+    border-radius: 8px;
+    height: 30vh;
+    margin-left: 15px;
+    background-color: #dfe2e2;
+
+}
+.admin-list{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-userorder h4{
+    text-align: center;
+    margin-bottom: 2vw;
+    font-weight: 600;
+    margin-top: 1vw;
+    
+}
+.admin-userorder{
+    display: flex;
+    flex-direction: column;
+}
+.menulist-userorder{
+   margin-top: 20px;
+    width: 25vw;
+    text-align: center;
+    height: 8vh;
+    box-shadow: 5px 5px 2px 5px white;
+    font-size: 23px;
+    padding-top: 5px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    background-color:#266E8D;
+    color: white;
+}

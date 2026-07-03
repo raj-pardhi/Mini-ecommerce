@@ -1,0 +1,170 @@
+.main-createproduct{
+    width: 100%;
+    background-color: #EEEEF0;
+display: flex;
+}
+
+
+.left-createproduct{
+    width: 30%;
+    height: 100%;
+    background-color: lightgray;
+}
+
+
+
+.right-createproduct{
+    width: 70%;
+    height: 100%;
+    
+
+}
+
+.right-createproduct h2{
+    margin-top: 5px;
+    text-align: center;
+    color: gray;
+
+}
+.product-uploadphoto{
+    width: 40vw;
+    height: 6vh;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+margin-top: 1.5vw;
+text-align: center;
+color:gray;
+padding-top:5px;
+font-weight: 500;
+font-size: 20px;
+box-shadow: 5px 5px 1px 4px #2BBEBC;
+
+
+}
+.product-uploadphoto:hover{
+    background-color: #2BBEBC;
+    color: white;
+    transition: all ease-in 0.3s;
+}
+.select-menu{
+    width: 40vw;
+    border-radius: 8px;
+    height: 5vh;
+    box-shadow: 5px 5px 2px 5px white;
+
+    background-color:#2BBEBC;
+}
+
+.row-input{
+width: 40vw;
+
+margin-left: 14vw;
+margin-top: 1.5vw;
+}
+.input-main input::placeholder{
+    color: white;
+}
+.in input::placeholder{
+    color: white;
+}
+
+.textarea-main textarea::placeholder{
+    color: white;
+}
+.inputmenu{
+    width: 40vw;
+    margin-top:1.5vw;
+    border-radius: 8px;
+    height: 7vh;
+    color: white;
+    border: none;
+    outline: none;
+    box-shadow: 5px 5px 2px 5px white;
+
+    background-color:#2BBEBC;
+}
+.textarea-main textarea{
+    width: 40vw;
+    margin-top:1vw;
+    border-radius: 5px;
+    height: 9vh;
+    color: white;
+    resize: none;
+
+    border: none;
+    outline: none;
+    box-shadow: 5px 5px 2px 5px white;
+
+    background-color:#2BBEBC;
+    
+
+}
+
+ .shiping-product::placeholder{
+    color: white;
+
+ }
+ 
+ .createproduct-btn{
+    width: 40vw;
+    height: 6vh;
+    border: none;
+    box-shadow: 5px 6px 2px 3px white;
+    color: white;
+
+    border-radius: 5px;
+    margin-top: 1.5vw;
+    background-color:dimgray;
+ }
+
+ .createproduct-btn:hover{
+    box-shadow: 5px 6px 2px 3px white;
+    background-color:dimgray;
+    transition: all ease-in 0.3s;
+ }
+
+ @media (max-width:500px) {
+    .main-createproduct{
+    flex-direction: column;
+    }
+    .right-createproduct{
+        width: 100%;
+        
+    }
+    .product-uploadphoto{
+        width: 80vw;
+    margin-top: 5vw;
+    }
+    .select-menu{
+        width: 80vw;
+        border-radius: 8px;
+        height: 5vh;
+        box-shadow: 5px 5px 2px 2px white;
+    
+        background-color:#2BBEBC;
+    }
+    .inputmenu{
+        width: 80vw;
+        margin-top:6vw;
+       
+    }
+
+    .textarea-main textarea{
+        width: 80vw;
+        margin-top:5vw;
+        }
+
+        .createproduct-btn{
+            width: 80vw;
+            height: 6vh;
+            border: none;
+            box-shadow: 5px 6px 2px 3px white;
+            color: white;
+        
+            border-radius: 5px;
+            margin-top:6vw;
+            background-color:dimgray;
+         }
+    
+ }

@@ -1,0 +1,29 @@
+.main-order{
+    width: 100%;
+    display: flex;
+    background-color: lightcyan;
+}
+.right-dash{
+    width: 70%;
+    background-color:#EEEEF0;
+    background-image: url(https://images.unsplash.com/photo-1543157145-f78c636d023d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-position: center;
+    background-size: cover;
+}
+
+
+.left-dash{
+    width: 30%;
+    height: 100%;
+
+}
+.card-dash{
+    width: 30vw;
+    height: 30vh;
+    margin-left: 23vw;
+    border-radius: 7px;
+    color: white;
+    padding: 20px;
+    margin-top: 16vw;
+    background-color:#266E8D;
+}

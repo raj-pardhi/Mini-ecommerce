@@ -1,0 +1,392 @@
+.home-page {
+  width: 100%;
+  position: relative;
+  background-color: #F1F3F6;
+  display: flex;
+
+}
+
+.main-homepage {
+  width: 78vw;
+  position: relative;
+  height: 90vh;
+  background-color: #e3e6e7;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+
+}
+
+.allproduct-h1 {
+  text-align: center;
+}
+
+.allproduct-h1 h1 {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.left-in-main {
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+}
+
+.left-in-main h5 {
+  font-size: 20px;
+  color: #535353;
+}
+
+.left-in-main h5 span {
+  color: #195bb1;
+}
+
+.left-in-main h1 {
+  font-size: 60px;
+  line-height: 1;
+  margin-top: 2vw;
+  font-family: monument;
+  margin-bottom: 4vw;
+  text-transform: uppercase;
+}
+
+.left-in-main h1 span {
+  color: #114689;
+  font-family: monument;
+
+}
+
+
+.left-in-main {
+  margin-top: 6vw;
+}
+
+.left-in-main button {
+  color: white;
+  background-color: black;
+  font-size: 16px;
+  border: none;
+  text-transform: uppercase;
+  padding: 9px 45px;
+  border-radius: 50px;
+  border-top-left-radius: 0px;
+}
+
+.left-in-main button:hover {
+  background-color: #114689;
+
+}
+
+.right-main {
+  width: 68%;
+  height: 100%;
+  /* background-color: red; */
+  white-space: nowrap;
+
+
+}
+
+.elem7 {
+  width: 23vw;
+  height: 66vh;
+  background-color: white;
+  font-family: Poppins;
+  margin-top: 6vw;
+  margin-left: 2vw;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgb(0, 0, 0, 0.3);
+  display: inline-block;
+
+
+}
+
+.photo-main {
+  width: 100%;
+  height: 60%;
+
+}
+
+.photo-main img {
+  margin-top: 2.5vw;
+  margin-left: 12px;
+  object-fit: cover;
+  object-position: center;
+  width: 94%;
+
+}
+
+.elem-data {
+  width: 100%;
+  height: 20%;
+  margin-top: 7.6vw;
+}
+
+.elem-data h5 {
+
+  background-color: #D0D4D5;
+  border-radius: 6px;
+  font-size: 20px;
+  width: 20vw;
+  padding-top: 10px;
+  margin-left: 3vw;
+  text-align: center;
+
+  height: 7vh;
+}
+
+.elem-data a {
+
+  font-size: 18px;
+  margin-left: 6.7vw;
+  padding: 11px 15px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #D0D4D5;
+  margin-top: 1.6vw;
+
+  background-color: black;
+  border-radius: 6px;
+}
+.left-home {
+  background-color: #e3e6e7;
+
+  width: 20%;
+  height: 90vh;
+  font-family: gilroy;
+  margin-right: 10px;
+
+}
+
+.filters {
+  margin-left: 1vw;
+  margin-top: 2vw;
+}
+
+.filters h4 {
+  font-size: 18px;
+  margin-top: 1vw;
+
+}
+
+.homeresetbtn {
+  margin-top: 2vw;
+  border-top-left-radius: 0px;
+  width: 9vw;
+  height: 38px;
+  font-size: 14px;
+  top: 10%;
+
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  background-color: #114689;
+
+
+
+}
+
+.right-home {
+  width: 78%;
+  background-color: white;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+
+.homepic {
+  height: 75%;
+  object-fit: cover;
+
+
+}
+
+.homepic img {
+  height: 50vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.cardhome {
+  margin-top: 2vw;
+  margin-left: 1vw;
+  width: 24vw;
+  position: relative;
+  height: 72vh;
+  background-color: rgb(225, 224, 224);
+  overflow: hidden;
+
+  margin-bottom: 1vw;
+  border-radius: 5px;
+  overflow: hidden;
+
+}
+
+.hometext {
+  margin-top: -1.8vw;
+  transition: all ease 0.4s;
+  height: 19vh;
+  padding: 0 10px;
+
+
+}
+
+.hometext h4 {
+  font-size: 21px;
+  color: rgb(63, 62, 62);
+
+}
+
+.hometext h5 {
+  font-size: 18px;
+  margin-top: 6px;
+  font-weight: 500;
+  color: rgb(78, 76, 76);
+}
+
+.text-back {
+  height: 5vh;
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  top: 93%;
+  transition: all ease 0.4s;
+
+  opacity: 0;
+}
+
+.cardhome:hover .text-back {
+  opacity: 1;
+  transition: all ease 0.3s;
+}
+
+.text-back h4 {
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+}
+
+.text-back h4 span {
+  color: #33bd96;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.text-back:hover {
+  opacity: 1;
+
+}
+
+.homethumb {
+  width: 70px;
+  height: 32px;
+  font-size: 16px;
+  border-radius: 50px;
+  border-top-left-radius: 0px;
+  border: none;
+  color: white;
+  background-color: #34A888;
+}
+
+.homebtn {
+  display: flex;
+  padding: 0 15px;
+  justify-content: space-between;
+}
+
+.homeaddbtn {
+  border-top-left-radius: 0px;
+  width: 50px;
+  height: 30px;
+  font-size: 14px;
+  top: 10%;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  background-color: #F58D19;
+
+}
+
+@media (max-width:500px) {
+  .home-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+  }
+  .main-homepage {
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+  
+  }
+  .elem7 {
+    width: 47vw;
+    height: 47vh;
+  }
+
+  .elem-data h5 {
+
+  
+    font-size: 13px;
+    width: 36vw;
+    padding-top: 10px;
+    margin-left: 11vw;
+    text-align: center;
+  
+    height: 6vh;
+  }
+  .elem-data a {
+
+    font-size: 13px;
+    margin-left: 6.7vw;
+    padding: 9px 15px;
+  
+  }
+
+
+  .left-in-main {
+    width: 100%;
+    height: 100%;
+    padding-left: 15vw;
+  }
+
+  .left-home {
+    width: 100%;
+  }
+
+  .right-home {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .homeresetbtn {
+
+    width: 30vw;
+    height: 35px;
+
+  }
+
+  .cardhome {
+    margin-top: 2vw;
+    margin-left: 1vw;
+    width: 90%;
+    position: relative;
+    height: 72vh;
+    background-color: rgb(225, 224, 224);
+    overflow: hidden;
+
+    margin-bottom: 1vw;
+    border-radius: 5px;
+    overflow: hidden;
+
+  }
+
+
+}

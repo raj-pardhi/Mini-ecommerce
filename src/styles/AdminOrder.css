@@ -1,0 +1,150 @@
+.main-adminorder{
+    width: 100%;
+    background-color: #EEEEF0;
+display: flex;
+}
+
+.allorders{
+    width: 100%;
+    height: 8vh;
+    text-align: center;
+    background-color: #8585ce;
+    position: absolute;
+}
+.allorders h1{
+    color: white;
+}
+.left-adminorder{
+    width: 30%;
+    height: 100%;
+    background-color: lightgray;
+}
+.card-adminorder{
+    width: 60vw;
+    margin-top: 5vw;
+    margin-left: 4vw;
+    
+
+}
+.table{
+    width: 60vw;
+    margin-left: 0vw;
+    margin-top: 9vh;
+}
+
+.container-order{
+width: 60vw;
+
+}
+.card-in{
+width: 47vw;
+height: 34vh;
+border-radius: 6px;
+overflow: hidden;
+display: flex;
+margin-left: 4vw;
+background-color: #8585ce;
+margin-top: 5px;
+}
+.card-in img{
+    width: 26vw;
+    margin-left: 7px;
+    margin-top: 5px;
+    height: 32vh;
+    object-fit: cover;
+}
+.order-text{
+    margin-left: 12vw;
+    color: white;
+}
+
+.order-text h5{
+    font-size: 22px;
+    margin-top: 1vw;
+    
+}
+.order-text p span{
+    font-size: 19px;
+    font-weight: 600;
+}
+
+
+
+
+.right-adminorder{
+    width: 70%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+}
+
+/* ==================USER.JS DESIGN===================== */
+
+.main-alluser{
+    width: 100%;
+    /* height: 91vh; */
+    background-color: #EEEEF0;
+display: flex;
+}
+
+
+.left-alluser{
+    width: 30%;
+    height: 100%;
+    background-color: lightgray;
+}
+
+.right-alluser h1{
+    text-align: center;
+    margin-top: 1vw;
+
+}
+
+.right-alluser{
+    width: 70%;
+    height: 100%;
+    
+
+}
+
+
+
+@media (max-width:500px) {
+    .main-adminorder{
+      
+    display: flex;
+    flex-direction: column;
+    }
+
+    .right-adminorder{
+        width: 100%;
+    }
+    
+    .card-in{
+        width: 90vw;
+        height: 34vh;
+        
+        }
+        .card-in img{
+            width: 50vw;
+            
+        }
+
+        .order-text{
+            margin-left: 3vw;
+        }
+        .order-text h5{
+            font-size: 18px;
+            margin-top: 1vw;
+            
+        }
+        .order-text p span{
+            font-size: 16px;
+            font-weight: 600;
+        }
+  
+}

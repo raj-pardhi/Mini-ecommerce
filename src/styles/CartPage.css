@@ -1,0 +1,136 @@
+.card-main2{
+    width: 100%;
+    height: 25vh;
+    background-color:#D5D1CF;
+    padding-top: 20px;
+}
+.card-main2 h1{
+    color:#0D464A;
+
+    
+}
+
+.row-cartmain{
+    background-color:rgb(235, 233, 233);
+    margin-left: -9vw;
+    width: 98.5vw;
+    display: flex;
+
+}
+
+
+.card-cartpage{
+    width: 40vw;
+    height: 37vh;
+    display: flex;
+    margin-top: 1vw;
+    margin-left: 10px;
+    flex-wrap: wrap;
+    border-radius: 7px;
+    background-color:#685FF4;
+}
+
+.text-cartpage{
+    margin-left: 10vw;
+    color: white;
+    margin-top: 1vw;
+}
+.text-cartpage h5{
+    font-size: 21px;
+    margin-top: 5px;
+}
+.text-cartpage h6{
+    font-size: 20px;
+
+}
+.cart-remove-btn{
+    display: flex;
+}
+
+.remove-cartbtn{
+    width: 9vw;
+    border: none;
+    border-radius: 14px;
+    border-bottom-right-radius: 0px;
+    margin-top: 3vw;
+    margin-left: 2vw;
+font-weight: 600;
+font-size: 18px;
+    height: 6vh;
+    background-color:#F5960B;
+}
+.card-cartpage img{
+    width: 22vw;
+    height: 35vh;
+    margin-top: 5px;
+    margin-left: 5px;
+    object-fit: cover;
+}
+
+.right-cartpage{
+    background-color:#EEDC93;
+    margin-left: 8vw;
+    margin-top: 12px;
+    width: 40vw;
+    border-radius:7px;
+
+}
+.right-cartpage h2{
+    text-align: center;
+    font-weight: 600;
+    color: black;
+
+    font-size: 40px;
+    margin-top: 10px;
+    
+}
+.right-cartpage h5{
+    text-align: center;
+    color: black;
+    font-size: 22px;
+}
+.right-cartpage h4{
+    margin-left: 2vw;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.price-cartpage h4{
+    font-size: 30px;
+    
+    color: black;
+}
+.price-cartpage h6{
+    margin-left: 2vw;
+    font-size: 25px;
+    margin-top: -10px;
+    color: black;
+}
+.updateadd-cartpage{
+    width: 12vw;
+    border: none;
+    border-radius: 18px;
+    border-bottom-right-radius: 0px;
+    color: white;
+    border-top-left-radius: 0px;
+margin-left: 2vw;
+margin-top: 1vw;
+font-weight: 600;
+font-size: 18px;
+    height: 6vh;
+    background-color:#2FCFC1;
+}
+.makepaymentbtn{
+    width: 13vw;
+    border: none;
+    border-radius: 18px;
+    border-bottom-right-radius: 0px;
+    color: white;
+    border-top-left-radius: 0px;
+margin-left: 2vw;
+margin-top: 1vw;
+font-weight: 600;
+font-size: 18px;
+    height: 6vh;
+    background-color:#2FCFC1;
+}
