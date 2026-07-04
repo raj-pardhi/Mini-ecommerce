@@ -37,7 +37,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0  z-50 border-b border-gray-200/70 bg-white/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60">
-      <div className=" max-w-full bg-amber-300 px-5">
+      <div className=" max-w-full  px-5">
         <div className="flex h-20 items-center justify-between gap-6">
 
           {/* Logo */}
@@ -60,7 +60,7 @@ const Header = () => {
               <SearchInput />
             </div>
 
-            <nav className="flex bg-green-300 items-center gap-1 pl-2">
+            <nav className="flex items-center gap-1 pl-2">
               <Link
                 href="/"
                 className={`relative rounded-xl px-4 py-2 text-sm font-medium transition-colors duration-200 ${

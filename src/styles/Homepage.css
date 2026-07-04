@@ -1,36 +1,112 @@
+/* =========================================================
+   Homepage.css — Responsive rewrite
+   - Same class names / same visual design as before
+   - Fixes: featured-product grid not structuring correctly
+   - Fixes: only 1 breakpoint existed (500px) -> now proper
+            breakpoints for tablet + small phones too
+   - Fixes: vh/vw fixed-height cards overflowing on small
+            & odd-aspect-ratio screens
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+/* -------------------- Utility classes --------------------
+   These classnames (d-flex, flex-column, mt-4, etc.) are used
+   directly in the JSX. If Bootstrap/Tailwind isn't loaded on
+   the page, they previously did nothing. Defining them here
+   as a safety net costs nothing if a framework is present,
+   and fixes layout if it isn't. */
+.d-flex {
+  display: flex;
+}
+.flex-column,
+.flex-colomn {
+  flex-direction: column;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+
+/* -------------------- Page shell -------------------- */
 .home-page {
   width: 100%;
   position: relative;
   background-color: #F1F3F6;
   display: flex;
-
+  flex-wrap: wrap;
 }
 
+.left-home {
+  background-color: #e3e6e7;
+  width: 20%;
+  min-width: 220px;
+  height: auto;
+  font-family: gilroy;
+  margin-right: 10px;
+}
+
+.right-home {
+  width: calc(78% - 10px);
+  flex: 1 1 0%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+/* -------------------- Filters sidebar -------------------- */
+.filters {
+  margin-left: 1vw;
+  margin-top: 1.5rem;
+  padding-right: 1vw;
+}
+
+.filters h4 {
+  font-size: 18px;
+  margin-top: 1rem;
+}
+
+.homeresetbtn {
+  margin-top: 1.5rem;
+  border-top-left-radius: 0px;
+  width: 100%;
+  max-width: 160px;
+  height: 38px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  background-color: #114689;
+  cursor: pointer;
+}
+
+/* -------------------- Hero banner -------------------- */
 .main-homepage {
-  width: 78vw;
+  width: 100%;
   position: relative;
-  height: 90vh;
+  min-height: 60vh;
   background-color: #e3e6e7;
   background-position: center;
   background-size: cover;
   display: flex;
-
+  flex-wrap: wrap;
 }
 
-.allproduct-h1 {
-  text-align: center;
-}
-
-.allproduct-h1 h1 {
-  text-align: center;
-  font-weight: 600;
-  margin-top: 5px;
+.left-main {
+  flex: 1 1 300px;
+  min-width: 280px;
 }
 
 .left-in-main {
   width: 100%;
   height: 100%;
   padding-left: 20px;
+  margin-top: 4vw;
 }
 
 .left-in-main h5 {
@@ -43,23 +119,17 @@
 }
 
 .left-in-main h1 {
-  font-size: 60px;
-  line-height: 1;
-  margin-top: 2vw;
+  font-size: clamp(32px, 6vw, 60px);
+  line-height: 1.1;
+  margin-top: 1.5rem;
   font-family: monument;
-  margin-bottom: 4vw;
+  margin-bottom: 2rem;
   text-transform: uppercase;
 }
 
 .left-in-main h1 span {
   color: #114689;
   font-family: monument;
-
-}
-
-
-.left-in-main {
-  margin-top: 6vw;
 }
 
 .left-in-main button {
@@ -71,288 +141,384 @@
   padding: 9px 45px;
   border-radius: 50px;
   border-top-left-radius: 0px;
+  cursor: pointer;
 }
 
 .left-in-main button:hover {
   background-color: #114689;
-
 }
 
 .right-main {
-  width: 68%;
-  height: 100%;
-  /* background-color: red; */
-  white-space: nowrap;
+  flex: 2 1 400px;
+  min-width: 280px;
+  height: auto;
+}
 
-
+.cnt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5vw;
+  padding: 2vw 0;
 }
 
 .elem7 {
-  width: 23vw;
-  height: 66vh;
+  flex: 1 1 260px;
+  max-width: 23vw;
+  min-width: 220px;
+  height: auto;
+  min-height: 380px;
   background-color: white;
   font-family: Poppins;
-  margin-top: 6vw;
-  margin-left: 2vw;
+  margin-top: 2vw;
+  margin-left: 1vw;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 5px 10px rgb(0, 0, 0, 0.3);
-  display: inline-block;
-
-
+  display: flex;
+  flex-direction: column;
 }
 
 .photo-main {
   width: 100%;
-  height: 60%;
-
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .photo-main img {
-  margin-top: 2.5vw;
-  margin-left: 12px;
+  margin-top: 1.5rem;
+  width: 90%;
+  height: auto;
+  max-height: 260px;
   object-fit: cover;
   object-position: center;
-  width: 94%;
-
 }
 
 .elem-data {
   width: 100%;
-  height: 20%;
-  margin-top: 7.6vw;
+  padding: 1rem;
+  text-align: center;
 }
 
 .elem-data h5 {
-
   background-color: #D0D4D5;
   border-radius: 6px;
-  font-size: 20px;
-  width: 20vw;
-  padding-top: 10px;
-  margin-left: 3vw;
+  font-size: 18px;
+  width: 100%;
+  padding: 10px;
   text-align: center;
-
-  height: 7vh;
 }
 
 .elem-data a {
-
-  font-size: 18px;
-  margin-left: 6.7vw;
-  padding: 11px 15px;
+  display: inline-block;
+  font-size: 16px;
+  padding: 10px 15px;
   text-decoration: none;
   font-weight: 500;
   color: #D0D4D5;
-  margin-top: 1.6vw;
-
+  margin-bottom: 0.75rem;
   background-color: black;
   border-radius: 6px;
 }
-.left-home {
-  background-color: #e3e6e7;
 
-  width: 20%;
-  height: 90vh;
-  font-family: gilroy;
-  margin-right: 10px;
-
+/* -------------------- Featured products heading -------------------- */
+.allproduct-h1 {
+  text-align: center;
 }
 
-.filters {
-  margin-left: 1vw;
-  margin-top: 2vw;
-}
-
-.filters h4 {
-  font-size: 18px;
-  margin-top: 1vw;
-
-}
-
-.homeresetbtn {
-  margin-top: 2vw;
-  border-top-left-radius: 0px;
-  width: 9vw;
-  height: 38px;
-  font-size: 14px;
-  top: 10%;
-
+.allproduct-h1 h1 {
+  text-align: center;
   font-weight: 600;
-  border-radius: 6px;
-  border: none;
-  color: white;
-  background-color: #114689;
-
-
-
+  margin-top: 1.5rem;
+  font-size: clamp(22px, 4vw, 32px);
 }
 
-.right-home {
-  width: 78%;
-  background-color: white;
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-
-
-.homepic {
-  height: 75%;
-  object-fit: cover;
-
-
-}
-
-.homepic img {
-  height: 50vh;
+/* -------------------- Featured products grid --------------------
+   These exact classnames (grid / sm:grid-cols-1 / lg:grid-cols-3)
+   come straight from the JSX. Previously nothing defined them, so
+   .cardhome (which has no display rule) fell back to block-level
+   stacking — that's the "not well structured" bug. This makes the
+   grid classes real and responsive: 1 col -> 2 cols -> 3 cols. */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 1rem;
   width: 100%;
-  object-fit: cover;
 }
 
+.sm\:grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
 
+.lg\:grid-cols-3 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .sm\:grid-cols-1 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* -------------------- Product card -------------------- */
 .cardhome {
-  margin-top: 2vw;
-  margin-left: 1vw;
-  width: 24vw;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  min-height: 420px;
   position: relative;
-  height: 72vh;
   background-color: rgb(225, 224, 224);
   overflow: hidden;
-
-  margin-bottom: 1vw;
   border-radius: 5px;
-  overflow: hidden;
+}
 
+.homepic {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.homepic img,
+.cardhomeimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .hometext {
-  margin-top: -1.8vw;
-  transition: all ease 0.4s;
-  height: 19vh;
-  padding: 0 10px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px 10px;
+}
 
-
+.card-name-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .hometext h4 {
-  font-size: 21px;
+  font-size: clamp(16px, 2vw, 21px);
   color: rgb(63, 62, 62);
-
+  margin: 0;
 }
 
 .hometext h5 {
-  font-size: 18px;
+  font-size: clamp(14px, 1.8vw, 18px);
   margin-top: 6px;
   font-weight: 500;
   color: rgb(78, 76, 76);
 }
 
-.text-back {
-  height: 5vh;
-  position: absolute;
-  z-index: 9999;
-  width: 100%;
-  top: 93%;
-  transition: all ease 0.4s;
+.hometext p {
+  font-size: 14px;
+  color: #666;
+  margin: 8px 0;
+}
 
+.text-back {
+  height: auto;
+  padding: 6px 0;
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.85);
+  transition: all ease 0.3s;
   opacity: 0;
 }
 
 .cardhome:hover .text-back {
   opacity: 1;
-  transition: all ease 0.3s;
 }
 
 .text-back h4 {
   font-weight: 500;
-  font-size: 15px;
+  font-size: 14px;
   text-align: center;
+  margin: 0;
 }
 
 .text-back h4 span {
   color: #33bd96;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 15px;
 }
 
-.text-back:hover {
-  opacity: 1;
-
+.homebtn {
+  display: flex;
+  padding: 0 5px;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
 }
 
 .homethumb {
-  width: 70px;
+  flex: 1 1 auto;
+  min-width: 60px;
   height: 32px;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 50px;
   border-top-left-radius: 0px;
   border: none;
   color: white;
   background-color: #34A888;
-}
-
-.homebtn {
-  display: flex;
-  padding: 0 15px;
-  justify-content: space-between;
+  cursor: pointer;
 }
 
 .homeaddbtn {
+  flex: 1 1 auto;
+  min-width: 50px;
   border-top-left-radius: 0px;
-  width: 50px;
-  height: 30px;
+  height: 32px;
   font-size: 14px;
-  top: 10%;
   border-radius: 6px;
   border: none;
   color: white;
   background-color: #F58D19;
-
+  cursor: pointer;
 }
 
-@media (max-width:500px) {
+/* -------------------- Load more -------------------- */
+.loadmore {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   Responsive breakpoints
+   ========================================================= */
+
+/* Large tablets / small laptops */
+@media (max-width: 1200px) {
+  .elem7 {
+    max-width: 30vw;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .home-page {
+    flex-direction: column;
+  }
+
+  .left-home {
+    width: 100%;
+    min-width: 0;
+    margin-right: 0;
+    height: auto;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 2rem;
+    margin: 0;
+    padding: 1rem;
+  }
+
+  .right-home {
+    width: 100%;
+  }
+
+  .main-homepage {
+    min-height: auto;
+  }
+
+  .elem7 {
+    max-width: 45vw;
+  }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 768px) {
+  .main-homepage {
+    flex-direction: column;
+  }
+
+  .left-in-main {
+    margin-top: 2rem;
+    padding-left: 16px;
+    text-align: left;
+  }
+
+  .cnt {
+    padding: 1rem;
+    justify-content: center;
+  }
+
+  .elem7 {
+    max-width: 100%;
+    flex: 1 1 45%;
+    margin-left: 0;
+  }
+
+  .cardhome {
+    min-height: 380px;
+  }
+}
+
+/* Phones */
+@media (max-width: 576px) {
   .home-page {
     width: 100%;
     display: flex;
     flex-direction: column;
+  }
 
-  }
-  .main-homepage {
-    width: 100vw;
-    height: 100vh;
+  .filters {
     flex-direction: column;
-  
+    gap: 0.5rem;
   }
+
+  .main-homepage {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+
   .elem7 {
-    width: 47vw;
-    height: 47vh;
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-height: 320px;
   }
 
   .elem-data h5 {
-
-  
-    font-size: 13px;
-    width: 36vw;
-    padding-top: 10px;
-    margin-left: 11vw;
-    text-align: center;
-  
-    height: 6vh;
+    font-size: 14px;
+    width: 100%;
   }
+
   .elem-data a {
-
-    font-size: 13px;
-    margin-left: 6.7vw;
+    font-size: 14px;
+    margin-left: 0;
     padding: 9px 15px;
-  
   }
-
 
   .left-in-main {
     width: 100%;
     height: 100%;
-    padding-left: 15vw;
+    padding-left: 16px;
   }
 
   .left-home {
@@ -367,26 +533,39 @@
   }
 
   .homeresetbtn {
+    width: 100%;
+    max-width: none;
+    height: 38px;
+  }
 
-    width: 30vw;
-    height: 35px;
+  .grid {
+    padding: 0.75rem;
+    gap: 1rem;
+  }
 
+  .sm\:grid-cols-1,
+  .lg\:grid-cols-3 {
+    grid-template-columns: 1fr;
   }
 
   .cardhome {
-    margin-top: 2vw;
-    margin-left: 1vw;
-    width: 90%;
-    position: relative;
-    height: 72vh;
-    background-color: rgb(225, 224, 224);
-    overflow: hidden;
+    width: 100%;
+    min-height: 400px;
+  }
+}
 
-    margin-bottom: 1vw;
-    border-radius: 5px;
-    overflow: hidden;
-
+/* Very small phones */
+@media (max-width: 400px) {
+  .left-in-main h1 {
+    font-size: 28px;
   }
 
+  .homebtn {
+    flex-wrap: wrap;
+  }
 
+  .homethumb,
+  .homeaddbtn {
+    flex: 1 1 100%;
+  }
 }

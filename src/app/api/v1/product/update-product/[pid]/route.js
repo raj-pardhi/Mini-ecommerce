@@ -1,6 +1,6 @@
-import connectDB from "../../../../../../lib/db";
-import productModel from "../../../../../../models/productModel";
-import { requireSignIn, isAdmin } from "../../../../../../lib/authMiddleware";
+import connectDB from "@/lib/db";
+import productModel from "@/models/productModel";
+import { requireSignIn, isAdmin } from "@/lib/authMiddleware";
 import slugify from "slugify";
 
 export async function PUT(req, { params }) {
@@ -30,19 +30,19 @@ export async function PUT(req, { params }) {
 
     switch (true) {
       case !name:
-        return Response.json({ error: "Name is Required" }, { status: 500 });
+        return Response.json({ error: "Name is Required" }, { status: 400 });
       case !description:
-        return Response.json({ error: "description is Required" }, { status: 500 });
+        return Response.json({ error: "description is Required" }, { status: 400 });
       case !price:
-        return Response.json({ error: "price is Required" }, { status: 500 });
+        return Response.json({ error: "price is Required" }, { status: 400 });
       case !category:
-        return Response.json({ error: "category is Required" }, { status: 500 });
+        return Response.json({ error: "category is Required" }, { status: 400 });
       case !quantity:
-        return Response.json({ error: "quantity is Required" }, { status: 500 });
+        return Response.json({ error: "quantity is Required" }, { status: 400 });
       case photo && photo.size > 1000000:
         return Response.json(
           { error: "Photo is Required and should be less than 1mb" },
-          { status: 500 }
+          { status: 400 }
         );
     }
 

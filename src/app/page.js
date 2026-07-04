@@ -182,9 +182,9 @@ const HomePage = () => {
           <div className='allproduct-h1'>
             <h1>FEATURED PRODUCTS</h1>
           </div>
-          <div className='d-flex flex-wrap'>
+          <div className='grid sm:grid-cols-1  lg:grid-cols-3'>
             {products?.map((p) => (
-              <div className='cardhome' key={p._id}>
+              <div className='cardhome ' key={p._id}>
                 <div className="homepic">
                   <img src={`/api/v1/product/product-photo/${p._id}`}
                     className='cardhomeimg'
