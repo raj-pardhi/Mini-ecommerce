@@ -1,0 +1,337 @@
+/* =====================================================
+   UPDATE PRODUCT PAGE
+   ===================================================== */
+
+.update-product-page {
+  --brand-indigo: #293690;
+  --brand-orange: #F58D19;
+  --brand-teal: #34A888;
+  --ink: #1a1a2e;
+  --muted: #77778a;
+  --border: #e6e6ee;
+
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #F4F5FA;
+  font-family: 'Inter', sans-serif;
+}
+
+.sidebar-col {
+  background-color: #ffffff;
+  border-right: 1px solid var(--border);
+}
+
+.content-col {
+  padding: 2rem 2.5rem 4rem;
+  min-width: 0;
+}
+
+/* -------------------- Header -------------------- */
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: clamp(24px, 3vw, 30px);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.page-header .subtitle {
+  font-size: 14.5px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.btn-delete-outline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: 1.5px solid #e0455a;
+  background-color: transparent;
+  color: #e0455a;
+  font-weight: 600;
+  font-size: 14.5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-delete-outline:hover {
+  background-color: #e0455a;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-delete-outline svg {
+  font-size: 17px;
+}
+
+/* -------------------- Grid: photo + form -------------------- */
+.product-form-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* -------------------- Photo panel -------------------- */
+.photo-panel {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem;
+  position: sticky;
+  top: 1.5rem;
+}
+
+.photo-upload {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #f4f4f8;
+  border: 1px dashed var(--border);
+}
+
+.photo-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-upload-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(20, 20, 40, 0.55);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.photo-upload-overlay svg {
+  font-size: 22px;
+}
+
+.photo-upload:hover .photo-upload-overlay {
+  opacity: 1;
+}
+
+.file-name {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+/* -------------------- Form panel -------------------- */
+.form-panel {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-group label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.text-input,
+.text-area {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background-color: #FAFAFD;
+  padding: 0 14px;
+  font-size: 14.5px;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.text-input {
+  height: 46px;
+}
+
+.text-area {
+  padding: 12px 14px;
+  min-height: 110px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.text-input:focus,
+.text-area:focus {
+  border-color: var(--brand-orange);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(245, 141, 25, 0.14);
+}
+
+.text-input::placeholder,
+.text-area::placeholder {
+  color: #b1b1c2;
+}
+
+/* AntD Select overrides, scoped to this page */
+.update-product-page .form-select .ant-select-selector {
+  border: 1.5px solid var(--border) !important;
+  border-radius: 10px !important;
+  background-color: #FAFAFD !important;
+  min-height: 46px !important;
+  display: flex;
+  align-items: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.update-product-page .ant-select-focused .ant-select-selector {
+  border-color: var(--brand-orange) !important;
+  box-shadow: 0 0 0 3px rgba(245, 141, 25, 0.14) !important;
+}
+
+.update-product-page .ant-select-selection-item,
+.update-product-page .ant-select-selection-placeholder {
+  font-size: 14.5px;
+  color: var(--ink);
+}
+
+/* -------------------- Actions -------------------- */
+.form-actions {
+  margin-top: 0.5rem;
+}
+
+.btn-update {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--brand-orange), #ff9f2e);
+  color: white;
+  font-size: 15.5px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(245, 141, 25, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-update:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(245, 141, 25, 0.38);
+}
+
+.btn-update:active {
+  transform: translateY(0);
+}
+
+.btn-update svg {
+  font-size: 18px;
+}
+
+/* -------------------- Responsive -------------------- */
+
+/* Tablets */
+@media (max-width: 1100px) {
+  .update-product-page {
+    grid-template-columns: 220px 1fr;
+  }
+
+  .product-form-grid {
+    grid-template-columns: 260px 1fr;
+  }
+
+  .content-col {
+    padding: 1.5rem 1.5rem 3rem;
+  }
+}
+
+/* Small tablets — stack photo above form, sidebar still visible */
+@media (max-width: 900px) {
+  .product-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-panel {
+    position: static;
+    max-width: 320px;
+  }
+}
+
+/* Phones — sidebar moves to top */
+@media (max-width: 700px) {
+  .update-product-page {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-col {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .content-col {
+    padding: 1.25rem 1rem 3rem;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-delete-outline {
+    justify-content: center;
+  }
+
+  .photo-panel {
+    max-width: 100%;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .form-panel {
+    padding: 1.5rem 1.25rem;
+  }
+}

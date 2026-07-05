@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { Select } from "antd";
 import { useRouter, useParams } from "next/navigation";
+import { FiUploadCloud, FiSave, FiTrash2 } from "react-icons/fi";
 const { Option } = Select;
 
 const UpdateProduct = () => {
@@ -72,14 +73,15 @@ const UpdateProduct = () => {
         productData
       );
       if (data?.success) {
-        toast.error(data?.message);
-      } else {
-        toast.success("Product Created Successfully");
+        toast.success("Product Updated Successfully");
         router.push("/dashboard/admin/products");
+      } else {
+        toast.error(data?.message || data?.error || "Something went wrong");
       }
     } catch (error) {
       console.log(error);
-      toast.error("something went wrong");
+      const serverMessage = error?.response?.data?.error || error?.response?.data?.message;
+      toast.error(serverMessage || "something went wrong");
     }
   };
 
@@ -99,128 +101,170 @@ const UpdateProduct = () => {
   }
 
   return (
-    <div className="container-fluid m-3 p-3 dashboard">
-      <div className="row">
-        <div className="col-md-3">
-          <AdminMenu />
-        </div>
-        <div className="col-md-9">
-          <h1>Update Product</h1>
-          <div className="m-1 w-75">
-            <Select
-              bordered={false}
-              placeholder="Select a category"
-              size="large"
-              showSearch
-              className="form-select mb-3"
-              onChange={(value) => {
-                setCategory(value);
-              }}
-              value={category}
-            >
-              {categories?.map((c) => (
-                <Option key={c._id} value={c._id}>
-                  {c.name}
-                </Option>
-              ))}
-            </Select>
-            <div className="mb-3">
-              <label className="btn btn-outline-secondary col-md-12">
-                {photo ? photo.name : "Upload Photo"}
+    <div className="flex min-h-screen w-full bg-gray-50">
+      {/* Sidebar - AdminMenu manages its own layout, untouched */}
+      <div className="flex-shrink-0">
+        <AdminMenu />
+      </div>
+
+      {/* Right side - form area */}
+      <div className="min-w-0 flex-1 px-6 py-10 md:px-10">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-8">
+            <h1 className="text-2xl font-bold text-gray-900">Update Product</h1>
+            <p className="mt-1 text-sm text-gray-500">
+              Edit the product details or remove it from your store.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
+            <form onSubmit={handleUpdate} className="space-y-6">
+
+              {/* Category + Shipping */}
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div>
+                  <label className="mb-1.5 block text-sm font-medium text-gray-700">
+                    Category
+                  </label>
+                  <Select
+                    placeholder="Select a category"
+                    size="large"
+                    showSearch
+                    className="w-full"
+                    onChange={(value) => setCategory(value)}
+                    value={category || undefined}
+                  >
+                    {categories?.map((c) => (
+                      <Option key={c._id} value={c._id}>
+                        {c.name}
+                      </Option>
+                    ))}
+                  </Select>
+                </div>
+
+                <div>
+                  <label className="mb-1.5 block text-sm font-medium text-gray-700">
+                    Shipping available
+                  </label>
+                  <Select
+                    placeholder="Select shipping"
+                    size="large"
+                    showSearch
+                    className="w-full"
+                    onChange={(value) => setShipping(value)}
+                    value={shipping ? "1" : "0"}
+                  >
+                    <Option value="0">No</Option>
+                    <Option value="1">Yes</Option>
+                  </Select>
+                </div>
+              </div>
+
+              {/* Photo upload */}
+              <div>
+                <label className="mb-1.5 block text-sm font-medium text-gray-700">
+                  Product photo
+                </label>
+                <label className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-gray-200 bg-gray-50 px-4 py-8 text-center transition hover:border-indigo-300 hover:bg-indigo-50">
+                  <FiUploadCloud size={28} className="text-gray-400" />
+                  <span className="text-sm font-medium text-gray-600">
+                    {photo ? photo.name : "Click to upload a new photo"}
+                  </span>
+                  <span className="text-xs text-gray-400">PNG, JPG up to 1MB</span>
+                  <input
+                    type="file"
+                    name="photo"
+                    accept="image/*"
+                    onChange={(e) => setPhoto(e.target.files[0])}
+                    hidden
+                  />
+                </label>
+
+                <div className="mt-4 flex justify-center">
+                  <img
+                    src={photo ? URL.createObjectURL(photo) : `/api/v1/product/product-photo/${id}`}
+                    alt="product_photo"
+                    className="h-48 rounded-xl object-cover shadow-sm"
+                  />
+                </div>
+              </div>
+
+              {/* Name */}
+              <div>
+                <label className="mb-1.5 block text-sm font-medium text-gray-700">
+                  Product name
+                </label>
                 <input
-                  type="file"
-                  name="photo"
-                  accept="image/*"
-                  onChange={(e) => setPhoto(e.target.files[0])}
-                  hidden
+                  type="text"
+                  value={name}
+                  placeholder="e.g. Wireless Headphones"
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100"
                 />
-              </label>
-            </div>
-            <div className="mb-3">
-              {photo ? (
-                <div className="text-center">
-                  <img
-                    src={URL.createObjectURL(photo)}
-                    alt="product_photo"
-                    height={"200px"}
-                    className="img img-responsive"
+              </div>
+
+              {/* Description */}
+              <div>
+                <label className="mb-1.5 block text-sm font-medium text-gray-700">
+                  Description
+                </label>
+                <textarea
+                  value={description}
+                  placeholder="Write a short description of the product"
+                  onChange={(e) => setDescription(e.target.value)}
+                  rows={4}
+                  className="w-full resize-none rounded-lg border border-gray-200 px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                />
+              </div>
+
+              {/* Price + Quantity */}
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div>
+                  <label className="mb-1.5 block text-sm font-medium text-gray-700">
+                    Price ($)
+                  </label>
+                  <input
+                    type="number"
+                    value={price}
+                    placeholder="0.00"
+                    onChange={(e) => setPrice(e.target.value)}
+                    className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100"
                   />
                 </div>
-              ) : (
-                <div className="text-center">
-                  <img
-                    src={`/api/v1/product/product-photo/${id}`}
-                    alt="product_photo"
-                    height={"200px"}
-                    className="img img-responsive"
+
+                <div>
+                  <label className="mb-1.5 block text-sm font-medium text-gray-700">
+                    Quantity
+                  </label>
+                  <input
+                    type="number"
+                    value={quantity}
+                    placeholder="0"
+                    onChange={(e) => setQuantity(e.target.value)}
+                    className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100"
                   />
                 </div>
-              )}
-            </div>
-            <div className="mb-3">
-              <input
-                type="text"
-                value={name}
-                placeholder="write a name"
-                className="form-control"
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div className="mb-3">
-              <textarea
-                type="text"
-                value={description}
-                placeholder="write a description"
-                className="form-control"
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </div>
+              </div>
 
-            <div className="mb-3">
-              <input
-                type="number"
-                value={price}
-                placeholder="write a Price"
-                className="form-control"
-                onChange={(e) => setPrice(e.target.value)}
-              />
-            </div>
-            <div className="mb-3">
-              <input
-                type="number"
-                value={quantity}
-                placeholder="write a quantity"
-                className="form-control"
-                onChange={(e) => setQuantity(e.target.value)}
-              />
-            </div>
-            <div className="mb-3">
-              <Select
-                bordered={false}
-                placeholder="Select Shipping "
-                size="large"
-                showSearch
-                className="form-select mb-3"
-                onChange={(value) => {
-                  setShipping(value);
-                }}
-                value={shipping ? "yes" : "No"}
-              >
-                <Option value="0">No</Option>
-                <Option value="1">Yes</Option>
-              </Select>
-            </div>
-            <div className="mb-3">
-              <button className="btn btn-primary" onClick={handleUpdate}>
-                UPDATE PRODUCT
-              </button>
-            </div>
-
-            <div className="mb-3">
-              <button className="btn btn-danger" onClick={handleDelete}>
-                Delete PRODUCT
-              </button>
-            </div>
+              {/* Action buttons */}
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <button
+                  type="submit"
+                  className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-indigo-600 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700"
+                >
+                  <FiSave size={18} />
+                  Update Product
+                </button>
+                <button
+                  type="button"
+                  onClick={handleDelete}
+                  className="flex flex-1 items-center justify-center gap-2 rounded-lg border-2 border-red-200 py-3 text-sm font-semibold text-red-600 transition hover:bg-red-50"
+                >
+                  <FiTrash2 size={18} />
+                  Delete Product
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

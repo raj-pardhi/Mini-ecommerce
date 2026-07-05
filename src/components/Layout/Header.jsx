@@ -49,7 +49,7 @@ const Header = () => {
               <HiOutlineShoppingCart size={24} />
             </span>
             <span className="bg-linear-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
-              Ecommerce
+              ShoeMart
             </span>
           </Link>
 
