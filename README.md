@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🛍️ ShoeCart — Full-Stack E-Commerce Platform
 
-## Getting Started
+A full-featured e-commerce web application for browsing, searching, and purchasing shoes online — built end-to-end with **Next.js (App Router)**, featuring a complete admin dashboard, secure authentication, category/price filtering, and integrated online payments.
 
-First, run the development server:
+**🔗 Live Demo:** [mini-ecommerce-jet-gamma.vercel.app](https://mini-ecommerce-jet-gamma.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+> Originally built as a MERN stack (React + Express) application and fully migrated to **Next.js**, unifying the frontend and backend into a single, production-ready codebase.
+
+---
+
+## ✨ Features
+
+### 🧑‍💻 Customer
+- Browse products with pagination and "load more"
+- Filter products by **category** and **price range**
+- Full-text **search** across product name and description
+- Product detail pages with **related/similar products**
+- Cart with add/remove items, persisted in local storage
+- Secure **checkout with Braintree** (card + PayPal support)
+- User authentication (register, login, forgot password)
+- User dashboard — view order history, update profile & address
+
+### 🛠️ Admin
+- Protected **admin dashboard** (role-based access control)
+- Create, update, and delete **product categories**
+- Create, update, and delete **products** (with image upload)
+- View and manage **all customer orders**, update order status
+- View registered users
+
+### ⚙️ Engineering highlights
+- **Route protection** via custom middleware (`AdminRoute` / `PrivateRoute`) backed by JWT verification
+- Product images stored directly in **MongoDB** as binary data (no external file storage needed)
+- MongoDB connection caching pattern for serverless environments (Vercel-safe)
+- Fully responsive, modern UI built with **Tailwind CSS**
+
+---
+
+## 🧰 Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Frontend | React, Tailwind CSS, Ant Design |
+| Backend | Next.js API Routes (Node.js runtime) |
+| Database | MongoDB with Mongoose |
+| Auth | JWT (JSON Web Tokens), bcrypt |
+| Payments | Braintree (Sandbox — supports card & PayPal) |
+| Notifications | react-hot-toast |
+| Deployment | Vercel |
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+├── app/
+│   ├── api/v1/                # Backend REST API (auth, category, product, payments)
+│   ├── (public pages)/        # Home, product/category pages, cart, search, auth
+│   └── dashboard/
+│       ├── admin/             # Admin panel (protected)
+│       └── user/              # User account area (protected)
+├── components/                # Reusable UI (Header, Footer, Forms, Route guards)
+├── context/                   # React Context — auth, cart, search state
+├── hooks/                     # Custom hooks (e.g. useCategory)
+├── lib/                       # DB connection, auth middleware, Braintree config
+└── models/                    # Mongoose schemas (User, Product, Category, Order)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🚀 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Clone the repository
+```bash
+git clone https://github.com/RajPardhi07/<repo-name>.git
+cd <repo-name>
+```
 
-## Learn More
+### 2. Install dependencies
+```bash
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Set up environment variables
+Create a `.env.local` file in the root directory:
+```env
+MONGO_URL=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+BRAINTREE_MERCHANT_ID=your_braintree_merchant_id
+BRAINTREE_PUBLIC_KEY=your_braintree_public_key
+BRAINTREE_PRIVATE_KEY=your_braintree_private_key
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Run the development server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🔐 Environment & Deployment Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- MongoDB Atlas **Network Access** must allow connections from anywhere (`0.0.0.0/0`) for Vercel's serverless functions to connect.
+- All environment variables must be added to your **Vercel Project Settings** before deploying.
+- Braintree is configured for the **Sandbox** environment — swap credentials for production use.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📸 Screenshots
+
+> _Add a few screenshots or a short demo GIF of the homepage, product page, cart, and admin dashboard here._
+
+---
+
+## 👤 Author
+
+**Raj Pardhi**
+Full Stack Developer (MERN / Next.js)
+
+- GitHub: [github.com/RajPardhi07](https://github.com/RajPardhi07)
+- LinkedIn: [linkedin.com/in/raj-pardhi](https://linkedin.com/in/raj-pardhi)
+- Portfolio: [raj-portfolio-2026.vercel.app](https://raj-portfolio-2026.vercel.app/)
+
+---
+
+## 📄 License
+
+This project is open source and available for learning purposes.
